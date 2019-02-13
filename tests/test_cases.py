@@ -16,10 +16,10 @@ def test_hyderabad():
     assert Geocode.to_bangalore_pin(12.924871,77.566238) == 500095
     
 def test_kolkatta():
-    assert Geocode.to_kolkatta_pin(22.5726,88.3639) == 560070
+    assert Geocode.to_kolkatta_pin(22.5726,88.3639) == 700012
     
 def test_ahmedabad():
-    assert Geocode.to_ahmedabad_pin(23.0225,72.5714) == 700012
+    assert Geocode.to_ahmedabad_pin(23.0225,72.5714) == 380006
     
 
     
