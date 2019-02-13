@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pincodicem",
-    version="0.0.1",
+    version="1.0.0",
     author="Sangarshanan",
     author_email="sangarshanan1998@gmail.com",
     description="Convert LatLongs to Pincode ",
