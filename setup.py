@@ -13,6 +13,6 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Sangarshanan/Pincodicem",
-    packages= ['citypincodes'],
+    packages=find_packages(exclude=('tests',)),
 
 )
