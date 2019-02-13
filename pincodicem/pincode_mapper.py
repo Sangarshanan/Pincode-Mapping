@@ -62,7 +62,7 @@ class Geocode:
     @classmethod
     def to_mumbai_pin(cls,lat,long): 
         
-        fiona_collection = fiona.collection(blore)
+        fiona_collection = fiona.collection(mum)
         gdf = gpd.GeoDataFrame.from_features([feature for feature in fiona_collection])
         # Get the order of the fields in the Fiona Collection; add geometry to the end
         columns = list(fiona_collection.meta["schema"]["properties"]) + ["geometry"]
