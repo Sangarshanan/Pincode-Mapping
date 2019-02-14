@@ -25,9 +25,7 @@ Now open your python interpreter
 ```python
 from pincodicem import pincode_mapper as pm
 
-pm.Geocode.to_bangalore_pin(<latitude>,<longitude>)
-
-
+pm.Geocode.to_bangalore_pin(12.9279,77.6271)
 ```
 
 Used packages 
