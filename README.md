@@ -36,12 +36,6 @@ from pincodicem import pincode_mapper as pm
 pm.Geocode.to_bangalore_pin(12.9279,77.6271)
 ```
 
-Used packages 
-
-- fiona
-- pandas 
-- geopandas
-- shapely
 
 Data : https://github.com/datameet/PincodeBoundary
 
