@@ -25,7 +25,7 @@ mum = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Mumbai/
 ahme = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Ahmedabad/boundary.geojson'
 kol =  'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Kolkata/boundary.geojson'
 hyder = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Hyderabad/boundary.geojson'
-delhi = 'https://raw.githubusercontent.com/Sangarshanan/Pincode-Mapping/master/data/delhi.csv'
+delhi_data = 'https://raw.githubusercontent.com/Sangarshanan/Pincode-Mapping/master/data/delhi.csv'
 
 
 
@@ -112,7 +112,7 @@ class Geocode:
     def to_delhi_pin(cls,lat,long): 
         
         #Read the csv file
-        delhi = pd.read_csv(delhi)
+        delhi = pd.read_csv(delhi_data)
         #filter only necessary columns 
         latlongs = delhi.iloc[:,2:]
         data =  np.array(latlongs)
