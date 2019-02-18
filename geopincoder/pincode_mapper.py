@@ -112,10 +112,14 @@ class Geocode:
 
     @classmethod
     def to_delhi_pin(cls,lat,long): 
-
+        
+        #Read the csv file
         data1 = pd.read_csv('https://raw.githubusercontent.com/Sangarshanan/Pincode-Mapping/master/data/delhi.csv')
-        pickle_in = open("delhi.p","rb")
-        tree1 = pickle.load(pickle_in)
+        #filter only necessary columns 
+        latlongs = data1.iloc[:,2:]
+        data =  np.array(latlongs)
+        #Kdtree of latlongs
+        tree = spatial.KDTree(data)
         latlongs = np.array([lat,long])
-        result = tree1.query(latlongs)
+        result = tree.query(latlongs)
         return int(data1.iloc[[result[1]]]['postalcode'])
