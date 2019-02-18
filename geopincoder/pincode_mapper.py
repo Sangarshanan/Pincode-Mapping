@@ -25,6 +25,7 @@ mum = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Mumbai/
 ahme = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Ahmedabad/boundary.geojson'
 kol =  'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Kolkata/boundary.geojson'
 hyder = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Hyderabad/boundary.geojson'
+delhi = 'https://raw.githubusercontent.com/Sangarshanan/Pincode-Mapping/master/data/delhi.csv'
 
 
 
@@ -106,3 +107,15 @@ class Geocode:
         gdf = gdf[columns]
         
         return (getpincode(gdf,lat,long))
+
+
+
+    @classmethod
+    def to_delhi_pin(cls,lat,long): 
+
+        data1 = pd.read_csv('https://raw.githubusercontent.com/Sangarshanan/Pincode-Mapping/master/data/delhi.csv')
+        pickle_in = open("Pickle/delhi.p","rb")
+        tree1 = pickle.load(pickle_in)
+        latlongs = np.array([lat,long])
+        result = tree1.query(latlongs)
+        return int(data1.iloc[[result[1]]]['postalcode'])

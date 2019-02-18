@@ -20,6 +20,9 @@ def test_kolkatta():
     
 def test_ahmedabad():
     assert Geocode.to_ahmedabad_pin(23.0225,72.5714) == 380006
+
+def test_delhi():
+	assert.Geocode.to_delhi_pin(28.5921,77.0460) == 110075
     
 
     
