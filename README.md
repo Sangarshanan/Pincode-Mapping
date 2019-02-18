@@ -14,13 +14,13 @@ Cities available
 
 ### Clone this repo and install the package  
 
-For Boys
+Do this
 
 ```
 pip install git+https://github.com/Sangarshanan/Pincode-Mapping.git
 ```
 
-For Men
+Or this
 
 ```
 git clone https://github.com/Sangarshanan/Pincode-Mapping.git
