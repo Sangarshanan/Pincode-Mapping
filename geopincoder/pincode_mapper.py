@@ -116,11 +116,11 @@ class Geocode:
         #Read the csv file
         delhi = pd.read_csv(delhi_data)
         #filter only necessary columns 
-        latlongs = delhi.iloc[:,2:]
+        latlongs = delhi.iloc[:,2:4]
         data =  np.array(latlongs)
         #Kdtree of latlongs
         kdtree = spatial.KDTree(data)
         latlongs = np.array([lat,long])
         result = kdtree.query(latlongs)
         #Get the pincode results
-        return int(data1.iloc[[result[1]]]['postalcode'])
+        return int(delhi.iloc[[result[1]]]['postalcode'])
