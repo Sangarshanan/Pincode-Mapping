@@ -1,4 +1,6 @@
 import fiona
+import numpy as np
+from scipy import spatial
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point, Polygon
