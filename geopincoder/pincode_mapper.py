@@ -114,7 +114,7 @@ class Geocode:
     def to_delhi_pin(cls,lat,long): 
 
         data1 = pd.read_csv('https://raw.githubusercontent.com/Sangarshanan/Pincode-Mapping/master/data/delhi.csv')
-        pickle_in = open("Pickle/delhi.p","rb")
+        pickle_in = open("Pincode-Mapping/geopincoder/Pickle/delhi.p","rb")
         tree1 = pickle.load(pickle_in)
         latlongs = np.array([lat,long])
         result = tree1.query(latlongs)
