@@ -1,4 +1,4 @@
-# Pincodicem The Pincode Mapper
+# Geopincoder 
 
 Map LatLongs to a Pincode 
 
@@ -10,6 +10,7 @@ Cities available
 - Hyderabad	
 - Kolkata	
 - Mumbai	
+- Delhi
 
 
 ### Clone this repo and install the package  
