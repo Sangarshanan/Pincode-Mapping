@@ -1,23 +1,41 @@
-import fiona
-import numpy as np
-from scipy import spatial
+"""
+HELPER FUCNTIONS FOR ABSTRACTION 
+"""
+
 import pandas as pd
-import geopandas as gpd
+from sklearn.externals import joblib
 from shapely.geometry import Point, Polygon
 
+"""
+Pickle file conataining the pandas 
+dataframe for easy loading 
 
-blore = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Bangalore/boundary.geojson'
-chen = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Chennai/boundary.geojson'
-mum = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Mumbai/boundary.geojson'
-ahme = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Ahmedabad/boundary.geojson'
-kol =  'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Kolkata/boundary.geojson'
-hyder = 'https://raw.githubusercontent.com/datameet/PincodeBoundary/master/Hyderabad/boundary.geojson'
-delhi_data = 'https://raw.githubusercontent.com/Sangarshanan/Pincode-Mapping/master/data/delhi.csv'
+"""
+
+blore = 'data/blore.pkl'
+chen = 'data/chennai.pkl'
+mum = 'data/mumbai.pkl'
+ahme = 'data/ahmedabad.pkl'
+kol =  'data/kolkatta.pkl'
+hyder = 'data/hyderabad.pkl'
+delhi_data = 'data/delhi.csv'
 
 
 
 
 def getpincode(data,lat,lon):
+
+    """Gets pincode from
+    the polygons shapefiles
+    
+    Args:
+        data (str): Pickle path
+        lat (double): latitude
+        lon (double): longitude
+    
+    Returns:
+        Integer: Pincode
+    """
     lat = float(lat)
     lon = float(lon)
     p = Point(lon,lat)
@@ -34,11 +52,13 @@ def getpincode(data,lat,lon):
 
 
 
-def pincode_for_city(cityname,lat,lon):
-    fiona_collection = fiona.collection(cityname)
-    gdf = gpd.GeoDataFrame.from_features([feature for feature in fiona_collection])
-    columns = list(fiona_collection.meta["schema"]["properties"])+["geometry"]
-    gdf = gdf[columns]
+def pincode_for_city(data,lat,lon):
+
+    #fiona_collection = fiona.collection(cityname)
+    #gdf = gpd.GeoDataFrame.from_features([feature for feature in fiona_collection])
+    #columns = list(fiona_collection.meta["schema"]["properties"])+["geometry"]
+    gdf = pd.read_pickle(data)
+
     try:
         gdf['pin_code'] = gdf['pin']
     except:
@@ -48,6 +68,12 @@ def pincode_for_city(cityname,lat,lon):
 
 
 def pincode_from_latlon(lat,lon):
+
+        """
+        Abstracts cities by 
+        defining their bbox
+
+        """
 
         if (lat > 12.602815 and lon > 76.863098 and lat < 13.386948 and lon <78.252869):
             #return "blore"
@@ -73,11 +99,13 @@ def pincode_from_latlon(lat,lon):
 
         elif (lat > 28.357568 and lon > 76.788940 and lat < 28.945669 and lon <77.503052):
 
+        	#### KDtree bases approach for Delhi Pincode mapping (No Polygon data :( )
+
             data1 = pd.read_csv(delhi_data)
-            latlongs = data1.iloc[:,2:4]
-            data =  np.array(latlongs)
-            tree =spatial.KDTree(data)
-            latlongs = np.array([lat,lon])
+
+            filename = 'data/delhitree.sav'
+            tree = joblib.load(filename)
+            latlongs = [lat, lon]
             result = tree.query(latlongs)
             pincode_delhi = int(data1.iloc[[result[1]]]['postalcode'])
             return pincode_delhi
