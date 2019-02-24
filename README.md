@@ -34,7 +34,7 @@ Now open your python interpreter
 ```python
 from geopincoder import pincode_mapper as pm
 
-pm.Geocode.to_bangalore_pin(12.9279,77.6271)
+pincode = pm.geocode.to_pincode(28.7041, 77.1025)
 ```
 
 
