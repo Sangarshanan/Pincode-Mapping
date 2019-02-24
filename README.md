@@ -1,5 +1,5 @@
-# Geopincoder 
-
+# Geopincoder (Slower but doesn't need anaconda)
+ 
 Map LatLongs to a Pincode 
 
 Cities available 
