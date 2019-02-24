@@ -15,7 +15,7 @@ setuptools.setup(
     url="https://github.com/Sangarshanan/Pincode-Mapping",
     packages=find_packages(exclude=('tests',)),
     package_data={
-      'geopincoder': ['data/delhi.csv','data/blore.pkl','data/chennai.pkl','data/mumbai.pkl','data/ahmedabad.pkl','data/kolkatta.pkl','data/hyderabad.pkl'],
+      'geopincoder': ['data/delhi.csv','data/blore.pkl','data/chennai.pkl','data/mumbai.pkl','data/ahmedabad.pkl','data/kolkatta.pkl','data/hyderabad.pkl','data/delhitree.sav'],
 
    }
 
