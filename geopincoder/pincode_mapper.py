@@ -7,7 +7,7 @@ class geocode:
 
 
       
-    def to_pincode(self,lat,lon):
+    def to_pincode(lat,lon):
 
     	return pincode_from_latlon(lat,lon)
 
