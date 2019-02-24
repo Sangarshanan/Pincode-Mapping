@@ -12,13 +12,13 @@ dataframe for easy loading
 
 """
 
-blore = 'data/blore.pkl'
-chen = 'data/chennai.pkl'
-mum = 'data/mumbai.pkl'
-ahme = 'data/ahmedabad.pkl'
-kol =  'data/kolkatta.pkl'
-hyder = 'data/hyderabad.pkl'
-delhi_data = 'data/delhi.csv'
+blore = 'geopincoder/data/blore.pkl'
+chen = 'geopincoder/data/chennai.pkl'
+mum = 'geopincoder/data/mumbai.pkl'
+ahme = 'geopincoder/data/ahmedabad.pkl'
+kol =  'geopincoder/data/kolkatta.pkl'
+hyder = 'geopincoder/data/hyderabad.pkl'
+delhi_data = 'geopincoder/data/delhi.csv'
 
 
 
@@ -103,7 +103,7 @@ def pincode_from_latlon(lat,lon):
 
             data1 = pd.read_csv(delhi_data)
 
-            filename = 'data/delhitree.sav'
+            filename = 'geopincoder/data/delhitree.sav'
             tree = joblib.load(filename)
             latlongs = [lat, lon]
             result = tree.query(latlongs)

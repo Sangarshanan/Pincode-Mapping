@@ -7,6 +7,7 @@ from geopincoder import mapper
 
 ### TESTCASES FOR CITIES ###
 
+
 class TestCityPincodes(unittest.TestCase):
 
     #Testing Pincodes for the cities one by one
@@ -31,7 +32,6 @@ class TestCityPincodes(unittest.TestCase):
 
     def test_ahmedabad(self):
         self.assertEqual(mapper.to_pincode(23.0225, 72.5714),380006)
-
 
 
 

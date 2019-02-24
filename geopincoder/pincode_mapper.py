@@ -10,8 +10,9 @@ class geocode:
 
     def __init__(self): 
     	pass
-      
-    def to_pincode(self,lat,lon):
+    
+    @staticmethod
+    def to_pincode(lat,lon):
     	"""
     	Returns Pincode 
     	given latlongs
