@@ -1,4 +1,4 @@
-# Geopincoder (Anaconda Version)
+# Geopincoder 
 
 Map LatLongs to a Pincode 
 
