@@ -3,6 +3,7 @@ HELPER FUCNTIONS FOR ABSTRACTION
 """
 
 import pandas as pd
+import os
 from sklearn.externals import joblib
 from shapely.geometry import Point, Polygon
 
@@ -11,14 +12,17 @@ Pickle file conataining the pandas
 dataframe for easy loading 
 
 """
+s = (os.getcwd())
+k = os.path.dirname(os.path.realpath(__file__))
+k = str(k)
 
-blore = '/anaconda3/lib/python3.7/site-packages/geopincoder/data/blore.pkl'
-chen = '/anaconda3/lib/python3.7/site-packages/geopincoder/data/chennai.pkl'
-mum = '/anaconda3/lib/python3.7/site-packages/geopincoder/data/mumbai.pkl'
-ahme = '/anaconda3/lib/python3.7/site-packages/geopincoder/data/ahmedabad.pkl'
-kol =  '/anaconda3/lib/python3.7/site-packages/geopincoder/data/kolkatta.pkl'
-hyder = '/anaconda3/lib/python3.7/site-packages/geopincoder/data/hyderabad.pkl'
-delhi_data = '/anaconda3/lib/python3.7/site-packages/geopincoder/data/delhi.csv'
+blore = k + '/data/blore.pkl'
+chen = k+ 'data//chennai.pkl'
+mum = k+'/data/mumbai.pkl'
+ahme = k+'/data/ahmedabad.pkl'
+kol =  k+'/data/kolkatta.pkl'
+hyder = k+'/data/hyderabad.pkl'
+delhi_data = k+'/data/delhi.csv'
 
 
 
@@ -77,7 +81,8 @@ def pincode_from_latlon(lat,lon):
 
         if (lat > 12.602815 and lon > 76.863098 and lat < 13.386948 and lon <78.252869):
             #return "blore"
-            return pincode_for_city(blore,lat,lon)
+            return s
+            #return pincode_for_city(blore,lat,lon)
 
         elif (lat > 18.687879 and lon > 72.410889 and lat < 19.539084 and lon <73.536987):
             #return "mum"
@@ -103,7 +108,7 @@ def pincode_from_latlon(lat,lon):
 
             data1 = pd.read_csv(delhi_data)
 
-            filename = '/anaconda3/lib/python3.7/site-packages/geopincoder/data/delhitree.sav'
+            filename = k+'/data/delhitree.sav'
             tree = joblib.load(filename)
             latlongs = [lat, lon]
             result = tree.query(latlongs)
