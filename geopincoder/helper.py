@@ -17,7 +17,7 @@ k = os.path.dirname(os.path.realpath(__file__))
 k = str(k)
 
 blore = k + '/data/blore.pkl'
-chen = k+ 'data/chennai.pkl'
+chen = k+ '/data/chennai.pkl'
 mum = k+'/data/mumbai.pkl'
 ahme = k+'/data/ahmedabad.pkl'
 kol =  k+'/data/kolkatta.pkl'
