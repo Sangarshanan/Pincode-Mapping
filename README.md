@@ -1,4 +1,4 @@
-# Geopincoder (Slower but doesn't need anaconda)
+# Geopincoder (Slower as it reads raw csv files)
  
 Map LatLongs to a Pincode 
 
