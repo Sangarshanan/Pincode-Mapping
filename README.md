@@ -40,4 +40,9 @@ pincode = pm.geocode.to_pincode(28.7041, 77.1025)
 
 Data : https://github.com/datameet/PincodeBoundary
 
-TODO: Looking to add more cities and expand the scope of this package
+TODO: 
+
+- Looking to add more cities and expand the scope of this package 
+- Improve data quality with Google maps API for KDtrees clustering
+
+
